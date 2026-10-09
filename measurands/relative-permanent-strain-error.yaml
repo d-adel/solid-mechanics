@@ -1,0 +1,10 @@
+kind: measurand
+publisher: d-adel
+name: relative-permanent-strain-error
+version: "0"
+unit: dimensionless
+definition: >-
+  |e - e_ref| / |e_ref|, where e is the axial linear strain of the body after unloading to zero
+  traction once the solver has reached equilibrium, taken as the axial diagonal of the least-squares
+  affine fit of nodal displacement against rest position over every node, and e_ref is
+  max(sigma - Y, 0)/H. Undefined, and refused, when |e_ref| < 1e-4.

@@ -1,0 +1,24 @@
+kind: case
+publisher: d-adel
+name: c2-hertz
+version: "0"
+purpose: verification
+problem:
+  type: sphere_indentation
+  units: SI
+  indenter: {shape: sphere, radius: 1.0, depth: 5.0e-3}
+  block: {half_width: 1.0, depth: 1.0}
+  material:
+    model: linear_elastic_isotropic
+    youngs_modulus: 2.0e+8
+    poissons_ratio: 0.3
+    density: 1000.0
+  discretization:
+    element: linear_hexahedron
+    growth: 1.3
+    runs:
+      - {smallest: 2.0e-2, scale: 1.0}
+      - {smallest: 1.0e-2, scale: 1.0}
+      - {smallest: 5.0e-3, scale: 1.0}
+      - {smallest: 5.0e-3, scale: 2.0}
+observables: [indentation_force]

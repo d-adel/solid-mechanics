@@ -1,0 +1,14 @@
+kind: measurand
+publisher: d-adel
+name: relative-normal-drift
+version: "0"
+unit: dimensionless
+definition: >-
+  The largest |n . (x(t) - x(0))| over the trajectory, divided by the element size along the plane
+  normal (problem.body.height / problem.discretization.cells[1]), where x is the body's mass-weighted
+  centre of mass and n the plane's unit normal. The reference is zero: a body sliding on a fixed plane
+  does not move along its normal (the constraint behind Sandia Sierra/SolidMechanics 5.22 section 2.14
+  eq. 2.22; section 2.11 checks the same as the normal displacement). The body's elastic compression
+  under its own weight is not subtracted. The uncertainty is twice the float32 spacing at the largest
+  coordinate, relative to the element size. Refused when the trajectory does not end at the case
+  duration.

@@ -1,0 +1,14 @@
+kind: measurand
+publisher: d-adel
+name: relative-slide-acceleration-error
+version: "0"
+unit: dimensionless
+definition: >-
+  |a - a_ref| / a_ref, where a_ref = g (sin(theta) - mu cos(theta)) is the downhill acceleration of
+  Sandia Sierra/SolidMechanics 5.22 Verification Tests Manual section 2.14 eq. 2.22, and a is twice the
+  t^2 coefficient of a least-squares fit s(t) = c0 + c1 t + c2 t^2 over 0.1 s <= t <= T to the downhill
+  displacement s of the body's mass-weighted centre of mass since release. The free c1 absorbs a
+  permanent velocity offset such as an integrator's start-up loss. The uncertainty combines, root sum of
+  squares, the fit's standard error on a, the change in a when the fit starts at 0.2 s, and twice the
+  float32 spacing at the largest coordinate carried through the fit, all relative to a_ref. Refused when
+  the body would not slide (mu >= tan(theta)) and when the trajectory does not end at the case duration.

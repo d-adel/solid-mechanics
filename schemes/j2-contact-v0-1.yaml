@@ -1,0 +1,28 @@
+kind: scheme
+publisher: d-adel
+name: j2-contact-v0
+version: "1"
+requirements:
+  - id: R-slide
+    measurand: ref:d-adel/relative-slide-distance-error@0
+    predicate: {operator: le, limit: 1.0e-2}
+    quantifier: enumerated
+    cases: [ref:d-adel/c1-incline-0@0, ref:d-adel/c1-incline-05@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+  - id: R-accel
+    measurand: ref:d-adel/relative-slide-acceleration-error@0
+    predicate: {operator: le, limit: 3.0e-3}
+    quantifier: enumerated
+    cases: [ref:d-adel/c1-incline-0@0, ref:d-adel/c1-incline-05@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+  - id: R-drift
+    measurand: ref:d-adel/relative-normal-drift@0
+    predicate: {operator: le, limit: 1.0e-3}
+    quantifier: enumerated
+    cases: [ref:d-adel/c1-incline-0@0, ref:d-adel/c1-incline-05@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+claims:
+  - id: C-j2-contact-v0
+    all_of: [R-slide, R-accel, R-drift]
+inference_patterns: [all_cases_conform, all_of]
+adapter_policy: {first_party_allowed: true, accept_approximate: false}

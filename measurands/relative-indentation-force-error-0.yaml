@@ -1,0 +1,15 @@
+kind: measurand
+publisher: d-adel
+name: relative-indentation-force-error
+version: "0"
+unit: dimensionless
+definition: >-
+  |F - F_H| / F_H, where F_H = (4/3) (E / (1 - nu^2)) sqrt(R) delta^(3/2) is Hertz's force for a rigid
+  sphere of radius R pressed a depth delta into an elastic half-space (H. Hertz, J. reine angew. Math. 92
+  (1881), pp. 167-168, with the algebra recorded in Terminus sources/14 V2), and F is the magnitude of the
+  force the sphere applies on the finest run of the standard block (scale 1). The uncertainty combines,
+  root sum of squares, the change in F from the next coarser standard run, the change in F from the run on
+  a larger block at the finest cell, and 1.5 times the largest motion tolerance divided by delta, all
+  relative to F_H. Refused when any run did not converge or penetrates the sphere by more than its motion
+  tolerance, when fewer than two standard runs exist, and when no larger-block run at the finest cell
+  exists.

@@ -1,0 +1,13 @@
+kind: scheme
+publisher: d-adel
+name: j2-contact-v0
+version: "0"
+requirements:
+  - id: R-slide
+    measurand: ref:d-adel/relative-slide-distance-error@0
+    predicate: {operator: le, limit: 1.0e-2}
+    quantifier: enumerated
+    cases: [ref:d-adel/c1-incline-0@0, ref:d-adel/c1-incline-05@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+inference_patterns: [all_cases_conform]
+adapter_policy: {first_party_allowed: true, accept_approximate: false}

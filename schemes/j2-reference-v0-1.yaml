@@ -1,0 +1,22 @@
+kind: scheme
+publisher: d-adel
+name: j2-reference-v0
+version: "1"
+requirements:
+  - id: R-strain
+    measurand: ref:d-adel/relative-strain-error@1
+    predicate: {operator: le, limit: 1.0e-3}
+    quantifier: enumerated
+    cases: [ref:d-adel/u1-hex@0, ref:d-adel/u1-tet@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+  - id: R-permanent
+    measurand: ref:d-adel/relative-permanent-strain-error@1
+    predicate: {operator: le, limit: 1.0e-3}
+    quantifier: enumerated
+    cases: [ref:d-adel/u1-hex@0, ref:d-adel/u1-tet@0]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+claims:
+  - id: C-j2-reference-v0
+    all_of: [R-strain, R-permanent]
+inference_patterns: [all_cases_conform, all_of]
+adapter_policy: {first_party_allowed: true, accept_approximate: false}

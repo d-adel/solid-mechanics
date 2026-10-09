@@ -1,0 +1,13 @@
+kind: measurand
+publisher: d-adel
+name: relative-slide-distance-error
+version: "0"
+unit: dimensionless
+definition: >-
+  |s - s_ref| / s_ref at T = the case duration, where s is the displacement of the body's
+  mass-weighted centre of mass along the downhill direction of the incline since release, and
+  s_ref = 1/2 g T^2 (sin(theta) - mu cos(theta)) per Sandia Sierra/SolidMechanics 5.22 Verification
+  Tests Manual section 2.14 eq. 2.22. The uncertainty combines, root sum of squares, twice the float32
+  spacing at the largest coordinate and the RMS normal-direction excursion of the centre of mass over
+  the last 0.1 s, both relative to s_ref. Refused when the body would not slide (mu >= tan(theta)) and
+  when the trajectory does not end at the case duration.

@@ -1,0 +1,24 @@
+kind: case
+publisher: d-adel
+name: u1-tet
+version: "0"
+purpose: verification
+problem:
+  type: uniaxial_tension_unloading
+  units: SI
+  body: {shape: box, length: 0.4, width: 0.05, height: 0.05}
+  material:
+    model: j2_small_strain_linear_isotropic_hardening
+    youngs_modulus: 2.0e+8
+    poissons_ratio: 0.3
+    yield_stress: 2.0e+5
+    hardening_modulus: 2.0e+7
+    density: 1000.0
+  loading:
+    type: equal_and_opposite_end_traction
+    axis: x
+    traction: 3.0e+5
+    then: unload_to_zero
+  supports: none
+  discretization: {element: linear_tetrahedron, cells: [16, 2, 2], split: kuhn_6}
+observables: [axial_strain_loaded, axial_strain_unloaded]

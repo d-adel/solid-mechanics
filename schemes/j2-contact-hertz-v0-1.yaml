@@ -1,0 +1,13 @@
+kind: scheme
+publisher: d-adel
+name: j2-contact-hertz-v0
+version: "1"
+requirements:
+  - id: R-hertz
+    measurand: ref:d-adel/relative-indentation-force-error@0
+    predicate: {operator: le, limit: 5.0e-2}
+    quantifier: enumerated
+    cases: [ref:d-adel/c2-hertz@1]
+    decision_rule: {type: guard_band, allow_zero_uncertainty: false}
+inference_patterns: [all_cases_conform]
+adapter_policy: {first_party_allowed: true, accept_approximate: true}

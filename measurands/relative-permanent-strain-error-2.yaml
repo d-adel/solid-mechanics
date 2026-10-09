@@ -1,0 +1,15 @@
+kind: measurand
+publisher: d-adel
+name: relative-permanent-strain-error
+version: "2"
+unit: dimensionless
+definition: >-
+  |e - e_ref| / |e_ref|, where e is the axial Biot strain of the body after unloading to zero traction once the
+  solver has reached equilibrium: the axial diagonal of U - I, with U the stretch of the polar
+  decomposition of the least-squares affine deformation gradient over every node, so a rigid
+  rotation does not bias it. e_ref is max(sigma - Y, 0)/H. The expanded uncertainty combines, root sum of squares:
+  3 x the largest fit residual / L, 3 x the float32 spacing at the largest coordinate / L,
+  3 x the largest Newton correction among the last three equilibrium checks / L, the largest shear
+  of U, and the difference of the two lateral stretches. Refused when |e_ref| < 1e-4, when one of
+  those checks hit the linear-solve iteration cap or was not factored, and for perfect plasticity
+  past yield.

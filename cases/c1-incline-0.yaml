@@ -1,0 +1,20 @@
+kind: case
+publisher: d-adel
+name: c1-incline-0
+version: "0"
+purpose: verification
+problem:
+  type: block_on_incline
+  units: SI
+  body: {shape: box, length: 0.1, width: 0.1, height: 0.1}
+  material:
+    model: linear_elastic_isotropic
+    youngs_modulus: 2.0e+8
+    poissons_ratio: 0.3
+    density: 1000.0
+  incline: {angle: 0.7853981633974483, friction: 0.0}
+  gravity: 9.81
+  duration: 0.5
+  time_step: 4.1666666666666664e-03
+  discretization: {element: linear_hexahedron, cells: [4, 4, 4]}
+observables: [center_of_mass_trajectory]
